@@ -1,3 +1,4 @@
+import './js/btm-tot-o-top';
 import MovieApiService from './js/movieFetch.js';
 import { renderMarkupPopular, renderMarkupByQ } from './js/renderFunctions.js';
 
