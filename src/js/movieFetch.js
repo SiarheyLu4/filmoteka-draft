@@ -1,3 +1,8 @@
+// import './sass/main.scss';
+
+import { Spinner } from 'spin.js';
+import opts from './spinner';
+
 const API_KEY = '03779c52c93ea63ebe46db37a334d7d8';
 const BASE_URL = 'https://api.themoviedb.org/3/';
 
@@ -8,16 +13,24 @@ const BASE_URL = 'https://api.themoviedb.org/3/';
       this.page = 1;
       
     }
-  
+
     // метод получения массива популярных фильмов. Total_pages = 1000 по дефолту.
-    async fetchPopular(){
+    async fetchPopular() {
+      /////////spin///////
+      const target = document.querySelector('.container-card');
+      const spinner = new Spinner(opts).spin(target);
+      ////////spin///////
       try{       
       const url=`${BASE_URL}trending/movie/day?api_key=${API_KEY}&page=${this.page}`
       const response=  await fetch(url);
       const data = await response.json();
-      console.log(data);
+        console.log(data);
+        /////>>>>>>spin//////
+        spinner.stop();
+        /////////spin<<<<<<<//
       return data.results;
-     } catch(error){console.log(error);
+      } catch (error) {
+        console.log(error);
     }}
     
     // метод получения массива фильмов по запросу.
