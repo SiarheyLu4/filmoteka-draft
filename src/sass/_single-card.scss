@@ -47,6 +47,19 @@
         }
 }
 
+//>>>>>>>збільшення масштабу img>>>>
+.container-card_single-card{
+    width: 100%;
+    height: 100%;
+    transition: transform 500ms;
+}
+
+.container-card_single-card:hover {
+    transform: scale(1.1);
+    border-radius: 1px;
+    
+}
+//<<<<<<<збільшення масштабу img<<<<<
 .info {
     font-family: 'Roboto';
     font-style: normal;
@@ -63,6 +76,9 @@
 
 .info_title{
     color: $text-color;
+    &:hover{
+        color: orange;
+    }
 }
 
 .info_details {
